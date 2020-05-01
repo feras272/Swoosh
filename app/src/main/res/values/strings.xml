@@ -4,4 +4,16 @@
     <string name="onGoing">ON GOING ALL OUT</string>
     <string name="find"><![CDATA[Find a team in your city & dominate the league]]></string>
     <string name="start_1">GET STARTED</string>
+    <string name="desLeague">Desired League:</string>
+    <string name="Mens">Mens</string>
+    <string name="Womens">Womens</string>
+    <string name="coed">Co-Ed</string>
+    <string name="next">NEXT</string>
+    <string name="swooshlogo">swooshLogo</string>
+    <string name="iam">I am a:</string>
+    <string name="beginner">Beginner</string>
+    <string name="baller">Baller</string>
+    <string name="finish">FINISH</string>
+    <string name="image_background">image_background</string>
+    <string name="textLeague">Looking for a co-ed beginner league near you...</string>
 </resources>
