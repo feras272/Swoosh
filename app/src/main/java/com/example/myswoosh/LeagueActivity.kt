@@ -13,6 +13,11 @@ class LeagueActivity : BaseActivity() {
 
     var player1 = Player("","")
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(EXTRA_PLAYER,player1)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)
@@ -21,9 +26,13 @@ class LeagueActivity : BaseActivity() {
 //            val skillAct = Intent(this, SkillActivity::class.java)
 //            startActivity(skillAct)
 //        }
+    }
 
-
-
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if(savedInstanceState != null){
+            player1 = savedInstanceState.getParcelable(EXTRA_PLAYER)
+        }
     }
 
     fun onMensClick (view: View) {

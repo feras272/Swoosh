@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_finish.*
 class FinishActivity : AppCompatActivity() {
 
 
+
 //    var leage:String = player1.league
 //    var skill:String = player1.skill
 

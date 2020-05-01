@@ -10,7 +10,12 @@ import kotlinx.android.synthetic.main.activity_skill.*
 class SkillActivity : BaseActivity() {
 
     //var selectedSkill = ""
-    lateinit var player1 : Player
+    lateinit var player1: Player
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(EXTRA_PLAYER, player1)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,26 +25,33 @@ class SkillActivity : BaseActivity() {
 
     }
 
-    fun onBeginnerClick (view: View) {
-        ballerToggleBtn.isChecked = false
-        player1.skill = "beginner"
-    }
-
-    fun onBallerClick (view: View) {
-        beginnerToggleBtn.isChecked = false
-        player1.skill = "baller"
-    }
-
-    fun onFinishClick(view: View) {
-        if(player1.skill != "") {
-            val finishActivity = Intent(this, FinishActivity::class.java)
-            finishActivity.putExtra(EXTRA_PLAYER, player1)
-            startActivity(finishActivity)
-        }else {
-            Toast.makeText(this,"Please select a skill.", Toast.LENGTH_SHORT).show()
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState != null) {
+            player1 = savedInstanceState.getParcelable(EXTRA_PLAYER)
         }
-    }
 
+        fun onBeginnerClick(view: View) {
+            ballerToggleBtn.isChecked = false
+            player1.skill = "beginner"
+        }
+
+        fun onBallerClick(view: View) {
+            beginnerToggleBtn.isChecked = false
+            player1.skill = "baller"
+        }
+
+        fun onFinishClick(view: View) {
+            if (player1.skill != "") {
+                val finishActivity = Intent(this, FinishActivity::class.java)
+                finishActivity.putExtra(EXTRA_PLAYER, player1)
+                startActivity(finishActivity)
+            } else {
+                Toast.makeText(this, "Please select a skill.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    }
 }
 
 
